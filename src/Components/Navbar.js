@@ -4,7 +4,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        { this.props.name }
+        <h3>{ this.props.name }</h3>
       </div>
     );
   }
