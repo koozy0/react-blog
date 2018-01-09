@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Components/Navbar';
-import Posts from './Components/Posts';
 import NewPost from './Components/NewPost';
+import Posts from './Components/Posts';
 import uuid from 'uuid';
 import './App.css';
 
@@ -22,6 +22,20 @@ const posts = [
     content: 'Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   }
 ]
+const navbarItems = [
+  {
+    id: uuid.v4(),
+    description: 'New Post'
+  },
+  {
+    id: uuid.v4(),
+    description: 'Register'
+  },
+  {
+    id: uuid.v4(),
+    description: 'Login'
+  }
+]
 
 class App extends Component {
   constructor() {
@@ -39,14 +53,17 @@ class App extends Component {
     let posts = this.state.posts;
     posts.push(newPost);
     this.setState({posts: posts});
+    // empty input fields
+    document.getElementById('title').value = '';
+    document.getElementById('content').value = '';
   }
 
   render() {
     return (
       <div className="App">
         <Navbar name="Navbar"/>
-        <NewPost addPost={(newPost) => this.handleAddPost(newPost)}/>
-        <Posts posts={this.state.posts}/>
+        <NewPost addPost={(newPost) => this.handleAddPost(newPost)} />
+        <Posts posts={this.state.posts} />
       </div>
     );
   }

@@ -8,6 +8,7 @@ class NewPost extends Component {
       newPost: {}
     }
   }
+
   handleSubmit(e) {
     if (!this.refs.title.value) alert('Title is required');
     else if (!this.refs.content.value) alert('Content is required');
