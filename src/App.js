@@ -41,12 +41,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      posts: []
-    }
+      posts: [],
+      navbarItems: []
+    };
   }
 
   componentWillMount() {
-    this.setState({posts: posts});
+    this.setState({
+      posts: posts,
+      navbarItems: navbarItems
+    });
   }
 
   handleAddPost(newPost) {
@@ -61,7 +65,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar name="Navbar"/>
+        <Navbar name="Navbar" navbarItems={this.state.navbarItems} />
         <NewPost addPost={(newPost) => this.handleAddPost(newPost)} />
         <Posts posts={this.state.posts} />
       </div>
